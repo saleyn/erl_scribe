@@ -5,6 +5,12 @@ However, I could not find much on erlang and scribe. This is an example on how t
 start logging to scribe with erlang. This example is a client thrift connection to a 
 local scribe server.
 
+This fork supports running Scribed on UNIX domain socket with:
+
+1. Thrift:  https://github.com/saleyn/thrift/tree/uds
+2. Scribed: https://github.com/saleyn/scribe/tree/ssl
+3. Erlang UDS: https://github.com/saleyn/euds
+
 <h2> Install Software needed. </h2>
 
 You will need to install boost, thrift, and scribe.

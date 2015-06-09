@@ -21,13 +21,19 @@ RM 	= /bin/rm -rf
 # Basic Compile Instructions #
 ##############################
 
-all:
+all: build
+
+gen: thrift build
+
+build:
+	cp src/*.app ebin/
+	erlc +debug_info -o ebin -I ./include $(filter-out src/example.erl, $(wildcard src/*.erl))
+
+thrift:
 	thrift --gen erl scribe.thrift
-	cp example.erl gen-erl
+	#cp example.erl gen-erl
 	cp -f gen-erl/*.erl src/
 	cp -f gen-erl/*.hrl include/
-	cp src/*.app ebin/
-	erlc -o ebin -I ./include src/*.erl
 
 clean:
 	-$(RM) gen-erl
