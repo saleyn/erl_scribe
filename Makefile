@@ -31,7 +31,7 @@ build:
 
 thrift:
 	thrift --gen erl scribe.thrift
-	#cp example.erl gen-erl
+	cp example.erl gen-erl
 	cp -f gen-erl/*.erl src/
 	cp -f gen-erl/*.hrl include/
 
